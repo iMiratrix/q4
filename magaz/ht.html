@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="color:#090; text-align:center;">GeeksforGeeks</h1>
+    <p style="font-size:25px">JSON get data from PHP file,
+        and converting into JavaScript array.</p>
+
+    <p style="font-size:25px;">Second Date of week: </p>
+    <p id="day"></p>
+<script>
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            document.getElementById("day").innerHTML = '<span>myObj[2]</span>';
+        }
+    };
+    xmlhttp.open("GET", "daylist.php", true);
+    xmlhttp.send();
+
+</script>
+</body>
+</html>
